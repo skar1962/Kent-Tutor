@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Kent-Tutor</title>
 		<link rel="stylesheet" type="text/css" href="styles.css" > 
-		<script type="text/javascript" src="script.js"></script> 
+		<script type="text/javascript" src="script.js"></script>
 	</head>
 
     <body>
@@ -29,8 +29,6 @@
 					</nav>
 				</div>
 			</div>
-			<!-- <div class="welcomeimage"><img src="welcome.jpg" /></div>  -->
-
 		</header>
 
 		<div id="aboutMe">
@@ -71,33 +69,34 @@
 
 		<!-- Bring up contact form -->
 		<div id="contact">
-			<!-- REMOVING THESE LINES AND USING JAVASCRIPT TO POP UP MAIL WINDOW
-			<form method="POST" action="mailto:skar1962@googlemail.com" enctype="text/plain">
-			-->
+			<!-- REMOVE NEXT LINE TO USE JAVASCRIPT TO POP UP MAIL WINDOW -->
+			<!--<form method="POST" action="mailto:sudesh.patel@outlook.com?subject=Tuition query" enctype="text/plain"> -->
+			
 			<h1>Contact</h1>
 			<h3>If you want to know more, please send a messsage</h3>
 			
 			<div id="container2">
 		
-				<div class="column2">
-						<h3>Kent-Tutor by Sudesh Patel</h3>
+				<div class="column1">
+						<h3>Kent-Tutor</h3>
+						<p>sudesh.patel@outlook.com</p>
 						<p>Sittingbourne, Kent, UK</p>
 				</div>
 		
 				<div class="column2">
 					<p>
-						<input type="text" id="customerName" name="customerName" maxlength="40" placeholder="Full Name">
+						<input type="text" id="customerName" name="CustomerName" required maxlength="40" placeholder="Full Name">
 					</p>
 					<p>
-						<input type="email" id="emailAdd" maxlength="40" placeholder="Email">
+						<input type="email" id="emailAdd" required maxlength="40" placeholder="Email">
 					</p>
 					<p>
-						<textarea type="text" name="message1" id="message1" cols="40" rows="5" maxlength="500" placeholder="Your message"></textarea>
+						<textarea type="text" name="Message" id="message1" required cols="40" rows="5" maxlength="500" placeholder="Your message"></textarea>
 					</p>
 					<p><input class="button" type="submit" id="sendForm" value="Send"></p>
 				</div>
 		
-				<div class="column2">
+				<div class="column3">
 						<h3>Hours</h3>
 						<p>Tuesday-Thursday 3pm-7pm	</p>
 						<p>(Friday, Saturday, Sunday and Monday by special arrangement only)</p>
