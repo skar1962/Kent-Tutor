@@ -191,19 +191,19 @@ nav li {
   
 }
 
-#customerName {
+#customerName1 {
   width: 99%;
   font-size: 100%;
 }
 
-#emailAdd {
+#emailAdd1 {
   width: 99%;
   font-size: 100%;
 }
 
 #message1 {
   width:99%;
-  font-size: 100%;
+  font-size: 120%;
 }
 
 ::-webkit-input-placeholder {

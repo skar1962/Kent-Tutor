@@ -1,5 +1,5 @@
 // create an anonymous function with the window.onload event.  This ensures that the window is loaded before the sendForm button is enacted.
-window.onload = function(){
+window.onload = function() {
 	// Check which browser we are running
 	// browserInfo();  
 	document.getElementById("sendForm").onclick = grabFormContents;
@@ -8,22 +8,84 @@ window.onload = function(){
 
 
 function grabFormContents() {
-	var myCustName = document.getElementById("customerName");
+	var myCustName = document.getElementById("customerName1");
 	var myCustMessage = document.getElementById("message1");
-	var myCustEmail = document.getElementById("emailAdd");
+	var myCustEmail = document.getElementById("emailAdd1");
 	var myWindow;
- 	myMailRecepient = "sudesh.patel@outlook.com"
-  mySubject = "Tuition query from "+myCustEmail.value
-	myMailBody = "From: "+myCustName.value+"%0D%0A"+"Email Address: "+myCustEmail.value+"%0D%0A"+"Message : "+myCustMessage.value;
-	// Open email window
-	openWin();
-}
+
 	
-function openWin() {
-	window.location.href="mailto:"+myMailRecepient+"?subject="+mySubject+"&body="+myMailBody;
+
+	// check that name is not blank
+	if (empty(myCustName.value))
+	{
+		alert('Please enter your name');
+		document.contactForm.CustomerName.focus();
+	}
+	else
+	{
+		if (empty(myCustEmail.value))
+		{
+			alert('Please enter your email address');
+			document.contactForm.EmailAdd.focus();
+		}
+		else
+		{
+			// check email address is of a valid format
+			if (validateEmail(myCustEmail.value))
+			{
+				myMailRecepient = "sudesh.patel@outlook.com";
+				mySubject = "Tuition query from "+myCustEmail.value;
+				myMailBody = "From: "+myCustName.value+"%0D%0A"+"Email Address: "+myCustEmail.value+"%0D%0A"+"Message : "+myCustMessage.value;
+				//Open email window
+					// Does not work on chrome -- need to check why
+					//window.location.href="mailto:"+myMailRecepient+"?subject="+mySubject+"&body="+myMailBody;
+
+					// works on edge but brings up an empty window in ie.  Need to find a way to kill the empty window.
+					myWindow=window.open("mailto:"+myMailRecepient+"?subject=Tuition query&body="+myMailBody);
+				}
+			else
+			{
+				document.contactForm.EmailAdd.focus();
+			}
+		}
+	}
+}	
+
+//---------------------------------
+
+function launchEmail() {
+//	window.location.href="mailto:"+myMailRecepient+"?subject="+mySubject+"&body="+myMailBody;
 }
 
+function empty(myValue) {
+//	alert('myValue='+myValue)
+	if (myValue == '')	
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}	
+}
+
+function validateEmail(inputText) {
+	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+	if(inputText.match(mailformat))
+	{
+		return true;
+	}
+	else
+	{
+		alert("Please enter a valid format email");
+		return false;
+	}
+}
+
+
 function browserInfo() {
+
 	var txt = "";
 	txt += "Browser CodeName: " + navigator.appCodeName + "-----";
 	txt += "Browser Name: " + navigator.appName + "-----";
@@ -34,7 +96,7 @@ function browserInfo() {
 	txt += "Platform: " + navigator.platform + "-----";
 	txt += "User-agent header: " + navigator.userAgent + "-----";
 	alert(txt);
-	
+
 
 	if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) 
 		{
@@ -60,5 +122,5 @@ function browserInfo() {
 		{
 		alert('unknown');
 		}
-	
 }
+

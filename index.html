@@ -70,7 +70,7 @@
 		<!-- Bring up contact form -->
 		<div id="contact">
 			<!-- REMOVE NEXT LINE TO USE JAVASCRIPT TO POP UP MAIL WINDOW -->
-			<!--<form method="POST" action="mailto:sudesh.patel@outlook.com?subject=Tuition query" enctype="text/plain"> -->
+			<!-- <form method="POST" action="mailto:sudesh.patel@outlook.com?subject=Tuition query" enctype="text/plain"> -->
 			
 			<h1>Contact</h1>
 			<h3>If you want to know more, please send a messsage</h3>
@@ -84,16 +84,12 @@
 				</div>
 		
 				<div class="column2">
-					<p>
-						<input type="text" id="customerName" name="CustomerName" required maxlength="40" placeholder="Full Name">
-					</p>
-					<p>
-						<input type="email" id="emailAdd" required maxlength="40" placeholder="Email">
-					</p>
-					<p>
-						<textarea type="text" name="Message" id="message1" required cols="40" rows="5" maxlength="500" placeholder="Your message"></textarea>
-					</p>
-					<p><input class="button" type="submit" id="sendForm" value="Send"></p>
+					<form name="contactForm">
+						<p><input type="text" id="customerName1" name="CustomerName" required maxlength="40" placeholder="Full Name"></p>
+						<p><input type="email" id="emailAdd1" name="EmailAdd" required maxlength="40" placeholder="Email"></p> 
+						<p><textarea type="text" name="Message" id="message1" cols="40" rows="5" maxlength="500" placeholder="Your message"></textarea></p>
+						<p><input class="button" type="submit" id="sendForm" value="Send"></p>
+					</form>
 				</div>
 		
 				<div class="column3">
