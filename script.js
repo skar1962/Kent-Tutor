@@ -1,7 +1,7 @@
 // create an anonymous function with the window.onload event.  This ensures that the window is loaded before the sendForm button is enacted.
 window.onload = function() {
 	// Check which browser we are running
-	// browserInfo();  
+	myBrowser = browserInfo();
 	document.getElementById("sendForm").onclick = grabFormContents;
 	
 }
@@ -37,15 +37,17 @@ function grabFormContents() {
 				mySubject = "Tuition query from "+myCustEmail.value;
 				myMailBody = "From: "+myCustName.value+"%0D%0A"+"Email Address: "+myCustEmail.value+"%0D%0A"+"Message : "+myCustMessage.value;
 				//Open email window
-					// Does not work on chrome -- need to check why
-					//window.location.href="mailto:"+myMailRecepient+"?subject="+mySubject+"&body="+myMailBody;
-
-					// works on edge but brings up an empty window in ie.  Need to find a way to kill the empty window.
-					myWindow=window.open("mailto:"+myMailRecepient+"?subject=Tuition query&body="+myMailBody);
+				if (myBrowser == "Chrome")
+				{
+					myWindow=window.open("mailto:"+myMailRecepient+"?subject="+mySubject+"&body="+myMailBody,"mailWindow");
+					myWindow.document.write("<p>This window name is:"+myWindow.name+"</p>");
+					myWindow.alert("Thank you.  Click OK to close this window after sending your email.");
+					myWindow.close();
 				}
-			else
-			{
-				document.contactForm.EmailAdd.focus();
+				else
+				{ 
+					myWindow=window.open("mailto:"+myMailRecepient+"?subject="+mySubject+"&body="+myMailBody,"_self");
+				}
 			}
 		}
 	}
@@ -85,7 +87,7 @@ function validateEmail(inputText) {
 
 
 function browserInfo() {
-
+/*
 	var txt = "";
 	txt += "Browser CodeName: " + navigator.appCodeName + "-----";
 	txt += "Browser Name: " + navigator.appName + "-----";
@@ -96,31 +98,43 @@ function browserInfo() {
 	txt += "Platform: " + navigator.platform + "-----";
 	txt += "User-agent header: " + navigator.userAgent + "-----";
 	alert(txt);
+*/
 
+	var myBrowser = "";
 
 	if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) 
 		{
-			alert('Opera');
+			// alert('Opera');
+			myBrowser="Opera";
 		}
     else if(navigator.userAgent.indexOf("Chrome") != -1 )
 		{
-			alert('Chrome');
+			// alert('Chrome');
+			myBrowser="Chrome";
 		}
     else if(navigator.userAgent.indexOf("Safari") != -1)
 		{
-			alert('Safari');
+			//alert('Safari');
+			myBrowser="Safari";
 		}
     else if(navigator.userAgent.indexOf("Firefox") != -1 ) 
 		{
-			alert('Firefox');
+			//alert('Firefox');
+			myBrowser="Firefox";
 		}
     else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) //IF IE > 10
 		{
-		alert('IE'); 
+			//alert('IE');
+			myBrowser="IE";
+
 		}  
     else 
 		{
-		alert('unknown');
+			//alert('unknown');
+			myBrowser="unknown";
 		}
+
+	return myBrowser;
 }
+
 
