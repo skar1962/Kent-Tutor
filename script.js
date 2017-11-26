@@ -2,8 +2,8 @@
 window.onload = function() {
 	// Check which browser we are running
 	myBrowser = browserInfo();
+	myPlatform = platformInfo();
 	document.getElementById("sendForm").onclick = grabFormContents;
-	
 }
 
 
@@ -12,6 +12,7 @@ function grabFormContents() {
 	var myCustMessage = document.getElementById("message1");
 	var myCustEmail = document.getElementById("emailAdd1");
 	var myWindow;
+
 
 	
 
@@ -44,6 +45,16 @@ function grabFormContents() {
 					myWindow.alert("Thank you.  Click OK to close this window after sending your email.");
 					myWindow.close();
 				}
+				else if (myBrowser == "Safari" && myPlatform == "iPad") 
+				{
+					myWindow=window.open("mailto:"+myMailRecepient+"?subject="+mySubject+"&body="+myMailBody,"mailWindow");
+					myWindow.close();
+					
+				}
+				else if (myBrowser == "Safari" && myPlatform == "iPhone") 
+				{
+					alert("On an iPhone, please open your email app and send a mail to "+myMailRecepient);
+				}
 				else
 				{ 
 					myWindow=window.open("mailto:"+myMailRecepient+"?subject="+mySubject+"&body="+myMailBody,"_self");
@@ -57,6 +68,7 @@ function grabFormContents() {
 
 function launchEmail() {
 //	window.location.href="mailto:"+myMailRecepient+"?subject="+mySubject+"&body="+myMailBody;
+document.location.href = "mailto:\\?sudesh@outlook.com";
 }
 
 function empty(myValue) {
@@ -87,21 +99,9 @@ function validateEmail(inputText) {
 
 
 function browserInfo() {
-/*
-	var txt = "";
-	txt += "Browser CodeName: " + navigator.appCodeName + "-----";
-	txt += "Browser Name: " + navigator.appName + "-----";
-	txt += "Browser Version: " + navigator.appVersion + "-----";
-	txt += "Cookies Enabled: " + navigator.cookieEnabled + "-----";
-	txt += "Browser Language: " + navigator.language + "-----";
-	txt += "Browser Online: " + navigator.onLine + "-----";
-	txt += "Platform: " + navigator.platform + "-----";
-	txt += "User-agent header: " + navigator.userAgent + "-----";
-	alert(txt);
-*/
 
 	var myBrowser = "";
-
+	
 	if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) 
 		{
 			// alert('Opera');
@@ -137,4 +137,23 @@ function browserInfo() {
 	return myBrowser;
 }
 
-
+function platformInfo() {
+	
+		var myPlatform = navigator.platform;
+	
+		/*
+		var txt = "";
+		txt += "Browser CodeName: " + navigator.appCodeName + "-----";
+		txt += "Browser Name: " + navigator.appName + "-----";
+		txt += "Browser Version: " + navigator.appVersion + "-----";
+		txt += "Cookies Enabled: " + navigator.cookieEnabled + "-----";
+		txt += "Browser Language: " + navigator.language + "-----";
+		txt += "Browser Online: " + navigator.onLine + "-----";
+		txt += "Platform: " + navigator.platform + "-----";
+		txt += "User-agent header: " + navigator.userAgent + "-----";
+		alert(txt);
+		*/
+	
+		return myPlatform;
+	}
+	
