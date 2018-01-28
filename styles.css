@@ -135,7 +135,7 @@ footer {
 
 #navbar .column1 {
   float: left;
-  width: 30%;
+  width: 25%;
   margin-left: 10px;
   margin-right: 10px;
 
@@ -143,13 +143,13 @@ footer {
 
 #navbar .column2 {
   float: left;
-  width: 50%;
+  width: 45%;
   margin-left: 10px;
+  text-align: center;
 }
 
 #navbar .column3 {
   float: right;
-
 }
 
 nav ul {
