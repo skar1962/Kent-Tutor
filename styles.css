@@ -68,37 +68,25 @@ footer {
 }
 
 
-#container { 
-    width: 99%;
-    margin-left: 0px; 
-    margin-right: 10px;
-    margin-bottom: 10px;
-    margin-top: 1px;
-    text-align: center;
-    padding: 10px;
-    column-count: 3;
 
+table {
+  border-spacing: 0px;
 }
 
-#container .column h2 { 
+td {
+  vertical-align: top;
+  text-align: justify;
+  padding: 10px 50px;
+}
+
+th h2 {
   color:rgb(101, 136, 160);
   font-family: Georgia, Serif; 
   text-align: center;
+
 }
 
-#container .column p {
-  margin-left: 20px;
-  margin-right: 20px;
-}
 
-#container .column image { 
-  margin-top: 20px;
-  margin-right: auto;
-  margin-left: 30px;
-  margin-bottom: 30px; 
-  border-radius: 50%;
-  object-fit: cover;
-}
 
 
 #container2 { 
@@ -221,4 +209,38 @@ a:link {
 /* visited link */
 a:visited {
   color: blue;
+}
+
+/* No longer used
+
+
+#container { 
+    width: 99%;
+    margin-left: 0px; 
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 1px;
+    text-align: center;
+    padding: 10px;
+    column-count: 2;
+
+}
+#container .column h2 { 
+  color:rgb(101, 136, 160);
+  font-family: Georgia, Serif; 
+  text-align: center;
+}
+
+#container .column p {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#container .column image { 
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: 30px;
+  margin-bottom: 30px; 
+  border-radius: 50%;
+  object-fit: cover;
 }
