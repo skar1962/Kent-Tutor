@@ -35,7 +35,7 @@ function grabFormContents() {
 			if (validateEmail(myCustEmail.value))
 			{
 				myMailRecepient = "sudesh.patel@outlook.com";
-				mySubject = "Tuition query from "+myCustEmail.value;
+				mySubject = "Kent-Tutor tuition query from "+myCustEmail.value;
 				myMailBody = "From: "+myCustName.value+"%0D%0A"+"Email Address: "+myCustEmail.value+"%0D%0A"+"Message : "+myCustMessage.value;
 				//Open email window
 				if (myBrowser == "Chrome")
